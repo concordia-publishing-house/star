@@ -1,13 +1,13 @@
 # Star
 
-TODO: Write a gem description
+A library for communicating with the StarTime API.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'star'
+gem "star"
 ```
 
 And then execute:

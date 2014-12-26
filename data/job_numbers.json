@@ -1,0 +1,39 @@
+{
+
+  // These are projects
+  // that we charge time to.
+  "projects": {
+    "bible101":     "214104",
+    "bsb":          "214102",
+    "confb":        "120053",
+    "cts":          "514940",
+    "ledger":       "214118",
+    "lsb3":         "120054",
+    "lsb2":         "214101",
+    "members":      "214113",
+    "musicmate":    "214114",
+    "oic":          "214111",
+    "pcc":          "214109",
+    "praynow":      "214110",
+    "unite":        "214117"
+  },
+  
+  // These are components that
+  // typically apply to all projects.
+  "components": {
+    "planning":     "20",
+    "feature":      "21",
+    "improvement":  "21",
+    "fix":          "22",
+    "chore":        "23",
+    
+    "support":      "51"
+  }
+  
+  // Can be used for exceptions
+  // to the general pattern:
+  // job_numbers: {
+  //   "meeting-department": "013101-01"
+  // }
+
+}
