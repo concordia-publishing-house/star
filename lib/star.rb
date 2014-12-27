@@ -2,6 +2,7 @@ require "faraday"
 require "faraday/raise_errors"
 require "nokogiri"
 require "bigdecimal"
+require "star/errors"
 require "star/job"
 require "star/http_ntlm_adapter"
 require "star/version"
@@ -10,12 +11,9 @@ require "star/version"
 class Star
   attr_reader :host, :credentials
   
-  class InvalidCredentials < RuntimeError; end
-  TIMEFMT = "%m/%d/%Y"
+  TIMEFMT = "%m/%d/%Y".freeze
   PRODUCTION = "http://starweb".freeze
   STAGING = "http://starwebtest".freeze
-  
-  
   
   def initialize(host=Star::PRODUCTION, credentials)
     @host, @credentials = host, credentials
@@ -91,6 +89,7 @@ private
     xml = response.body
     doc = Nokogiri::XML(xml, nil, nil, Nokogiri::XML::ParseOptions::NOBLANKS | Nokogiri::XML::ParseOptions::NONET)
     doc.remove_namespaces!
+    raise Star::Error, doc unless doc.root.xpath("//Success").text == "true"
     doc
   end
   
