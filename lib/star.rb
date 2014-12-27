@@ -1,37 +1,31 @@
-require "net/http"
-require "ntlm/http"
+require "faraday"
+require "faraday/raise_errors"
 require "nokogiri"
 require "bigdecimal"
 require "star/job"
+require "star/http_ntlm_adapter"
 require "star/version"
 
+
 class Star
+  attr_reader :host, :credentials
   
   class InvalidCredentials < RuntimeError; end
   TIMEFMT = "%m/%d/%Y"
-  PRODUCTION = "starweb".freeze
-  STAGING = "starwebtest".freeze
+  PRODUCTION = "http://starweb".freeze
+  STAGING = "http://starwebtest".freeze
   
   
   
-  def initialize(host=Star::PRODUCTION, port=80, credentials)
-    @host, @port, @credentials = host, port, credentials
+  def initialize(host=Star::PRODUCTION, credentials)
+    @host, @credentials = host, credentials
+    @http = Faraday.new(url: host) do |http|
+      http.use Faraday::RaiseErrors
+      http.adapter :http_ntlm
+    end
   end
   
-  def http
-    # Create a new connection
-    #
-    # This is the only way to run Net::HTTP with Keep-Alive
-    # In other scenarios it adds the header Connection: Close
-    #
-    # We want a connection because NTML authenticates a connection
-    # If we keep it alive, we can send multiple requests through
-    # without re-authenticating.
-    #
-    @http ||= Net::HTTP.start(host, port)
-  end
   
-  attr_reader :host, :port, :credentials
   
   def record_time!(project, component, date, hours)
     
@@ -84,19 +78,14 @@ class Star
   
   
   def get!(path)
-    request = Net::HTTP::Get.new(path)
-    response = send_request(request)
-    parse_response(response)
+    parse_response(credentials.with_credentials { |username, password|
+      http.get path, nil, "X-NTLM" => [username, password].join("\n") })
   end
   
   
   
-  def send_request(request)
-    credentials.with_credentials do |username, password|
-      request.ntlm_auth(username, "cph.pri", password)
-      response = http.request(request)
-    end
-  end
+private
+  attr_reader :http
   
   def parse_response(response)
     xml = response.body
@@ -104,7 +93,5 @@ class Star
     doc.remove_namespaces!
     doc
   end
-  
-  
   
 end
