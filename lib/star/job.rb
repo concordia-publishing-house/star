@@ -4,24 +4,15 @@ class Star
   class Job < Struct.new(:project, :component, :job_number, :deprecated)
     
     PROJECT_ALIASES = {
-      "360" => "members",
       "dayschool" => "oic",
-      "lsb-editor" => "lsb3",
-      "treeview" => "lsb3",
-      "email_relay" => "members"
+      "lsb-editor" => "lsb3"
     }.freeze
     
     COMPONENT_ALIASES = {
       "incubation" =>   "planning",
       "enhancement" =>  "feature",
       "improvement" =>  "feature",
-      "bugfix" =>       "fix",
-      "testfix" =>      "chore",
-      "cifix" =>        "chore",
-      "ciskip" =>       "chore",
-      "ci" =>           "chore",
-      "skip" =>         "chore",
-      "refactor" =>     "chore"
+      "bugfix" =>       "fix"
     }.freeze
     
     
