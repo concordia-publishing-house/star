@@ -1,3 +1,14 @@
+2015_components: &2015_components
+  20: planning
+  21: development
+  23: chore
+  24: itsm
+  25: cve
+  26: exception
+  27: ux-research
+  28: ix-design
+  51: support
+
 2014_components: &2014_components
   20: planning
   21: feature
@@ -5,37 +16,97 @@
   23: chore
   51: support
 
+# These are projects
+# that we charge time to.
+# 120027  TLSB iOS app
+# 120052  Lutheran Witness Online
+# 120053  Confirmation Builder
+# 120066  LSB hymnal app
+# 120071  On Line Subscriptions
+# 120078  Interactive Bible Timeline
+
 jobs:
+  215104:
+    name: bible101
+    components: *2015_components
+  215102:
+    name: bsb
+    components: *2015_components
+  215103:
+    name: confb
+    components: *2015_components
+  514940:
+    name: cts
+    components: *2015_components
+  215118:
+    name: ledger
+    components: *2015_components
+  120054:
+    name: lsb3
+    components: *2015_components
+  215101:
+    name: lsb2
+    components: *2015_components
+  215113:
+    name: members
+    components: *2015_components
+  215114:
+    name: musicmate
+    components: *2015_components
+  215111:
+    name: oic
+    components: *2015_components
+  215109:
+    name: pcc
+    components: *2015_components
+  215110:
+    name: praynow
+    components: *2015_components
+  215117:
+    name: unite
+    components: *2015_components
+
   214104:
     name: bible101
     components: *2014_components
+    deprecated: true
   214102:
     name: bsb
     components: *2014_components
+    deprecated: true
   120053:
     name: confb
     components: *2014_components
+    deprecated: true
   214118:
     name: ledger
     components: *2014_components
+    deprecated: true
   214101:
     name: lsb2
     components: *2014_components
+    deprecated: true
   214113:
     name: members
     components: *2014_components
+    deprecated: true
   214114:
     name: musicmate
     components: *2014_components
+    deprecated: true
   214111:
     name: oic
     components: *2014_components
+    deprecated: true
   214109:
     name: pcc
     components: *2014_components
+    deprecated: true
   214110:
     name: praynow
     components: *2014_components
+    deprecated: true
   214117:
     name: unite
     components: *2014_components
+    deprecated: true
