@@ -1,0 +1,41 @@
+2014_components: &2014_components
+  20: planning
+  21: feature
+  22: fix
+  23: chore
+  51: support
+
+jobs:
+  214104:
+    name: bible101
+    components: *2014_components
+  214102:
+    name: bsb
+    components: *2014_components
+  120053:
+    name: confb
+    components: *2014_components
+  214118:
+    name: ledger
+    components: *2014_components
+  214101:
+    name: lsb2
+    components: *2014_components
+  214113:
+    name: members
+    components: *2014_components
+  214114:
+    name: musicmate
+    components: *2014_components
+  214111:
+    name: oic
+    components: *2014_components
+  214109:
+    name: pcc
+    components: *2014_components
+  214110:
+    name: praynow
+    components: *2014_components
+  214117:
+    name: unite
+    components: *2014_components
