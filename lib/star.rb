@@ -14,6 +14,43 @@ class Star
   TIMEFMT = "%m/%d/%Y".freeze
   PRODUCTION = "http://starweb".freeze
   STAGING = "http://starwebtest".freeze
+  PAY_TYPES = {
+    "BR"   => :timeoff,  # Bereavement
+    "BR20" => :timeoff,  # Bereavement 20%
+    "BR30" => :timeoff,  # Bereavement 30%
+    "BR50" => :timeoff,  # Bereavement 50%
+
+    "HP"   => :holiday,  # Holiday Pay
+    "HP20" => :holiday,  # Holiday Pay 20%
+    "HP30" => :holiday,  # Holiday Pay 30%
+    "HP50" => :holiday,  # Holiday Pay 50%
+    "HPRP" => :holiday,  # Holiday RPT Exempt
+    "HR50" => :holiday,  # Holiday Pay RPT 50%
+
+    "JR"   => :timeoff,  # Jury Duty
+    "JR20" => :timeoff,  # Jury Duty 20%
+    "JR30" => :timeoff,  # Jury Duty 30%
+    "JR50" => :timeoff,  # Jury Duty 50%
+
+    "REG"  => :regular,  # Regular pay
+    "MR20" => :regular,  # Minister Earn. 20%
+    "MR30" => :regular,  # Minister Earn. 30%
+    "MR50" => :regular,  # Minister Earn 50%
+
+    "MW"   => :timeoff,  # Mission Work
+    "MW20" => :timeoff,  # Mission Work 20%
+    "MW30" => :timeoff,  # Mission Work 30%
+    "MW50" => :timeoff,  # Mission Work 50%
+
+    "OT"   => :overtime, # OverTime
+    "SOT"  => :overtime, # Salary Over Time
+
+    "TO"   => :timeoff,  # PaidTime Off-Salary
+    "TO20" => :timeoff,  # Paid Time Off 20%
+    "TO30" => :timeoff,  # Paid Time Off 30%
+    "TO50" => :timeoff,  # Paid Time Off 50%
+    "TO-H" => :timeoff   # PaidTime Off-Hourly
+  }.freeze
   
   def initialize(host=Star::PRODUCTION, credentials)
     @host, @credentials = host, credentials
@@ -67,6 +104,18 @@ class Star
     end
   end
   
+  def get_unitime!(date, user)
+    doc = get! "/WebService.asmx/GetEmpowerTimeForDay?date=#{date.strftime(TIMEFMT)}&user=#{user}"
+    
+    doc.root.xpath("//DetailData/EmpowerTimeDetailData").map do |entry|
+      pay_type = entry.xpath("PayType").text
+      pay_code = PAY_TYPES.fetch(pay_type)
+      { pay_type: pay_type,
+        pay_code: pay_code,
+        hours: BigDecimal.new(entry.xpath("Hours").text) }
+    end
+  end
+  
   def submit!
     doc = get! "/WebService.asmx/SubmitTimeSheet"
     { message: doc.root.xpath("//ReturnMessage").text,
@@ -76,8 +125,12 @@ class Star
   
   
   def get!(path)
-    parse_response(credentials.with_credentials { |username, password|
-      http.get path, nil, "X-NTLM" => [username, password].join("\n") })
+    parse_response get(path)
+  end
+  
+  def get(path)
+    credentials.with_credentials { |username, password|
+      http.get path, nil, "X-NTLM" => [username, password].join("\n") }
   end
   
   
