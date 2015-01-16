@@ -98,7 +98,8 @@ class Star
       project, component = Job.project_and_component_for_entry(jobno)
       project, component = [job, code] if project.nil?
       
-      { project: project,
+      { date: date,
+        project: project,
         component: component,
         hours: BigDecimal.new(entry.xpath("Hours").text) }
     end
@@ -110,7 +111,8 @@ class Star
     doc.root.xpath("//DetailData/EmpowerTimeDetailData").map do |entry|
       pay_type = entry.xpath("PayType").text
       pay_code = PAY_TYPES.fetch(pay_type)
-      { pay_type: pay_type,
+      { date: date,
+        pay_type: pay_type,
         pay_code: pay_code,
         hours: BigDecimal.new(entry.xpath("Hours").text) }
     end
