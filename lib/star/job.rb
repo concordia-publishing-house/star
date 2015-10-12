@@ -10,7 +10,8 @@ class Star
     
     COMPONENT_ALIASES = {
       "incubation" =>   "planning",
-      "ops" =>          "chore"
+      "ops" =>          "chore",
+      "err" =>          "exception"
     }.freeze
     
     
