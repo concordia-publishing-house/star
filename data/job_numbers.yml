@@ -1,3 +1,15 @@
+2016_components: &2016_components
+  20: planning
+  21: development
+  23: chore
+  24: itsm
+  25: cve
+  26: exception
+  27: ux-research
+  28: ix-design
+  29: project-maintenance
+  51: support
+
 2015_components: &2015_components
   20: planning
   21: development
@@ -27,45 +39,92 @@
 # 120078  Interactive Bible Timeline
 
 jobs:
+  216104:
+    name: bible101
+    components: *2016_components
+  216102:
+    name: bsb
+    components: *2016_components
+  216103:
+    name: confb
+    components: *2016_components
+  216118:
+    name: ledger
+    components: *2016_components
+  120054:
+    name: lsb3
+    components: *2016_components
+  216101:
+    name: lsb2
+    components: *2016_components
+  216113:
+    name: members
+    components: *2016_components
+  216111:
+    name: oic
+    components: *2016_components
+  216109:
+    name: pcc
+    components: *2016_components
+  216110:
+    name: praynow
+    components: *2016_components
+  216117:
+    name: unite
+    components: *2016_components
+
   215104:
     name: bible101
     components: *2015_components
+    deprecated: true
   215102:
     name: bsb
     components: *2015_components
+    deprecated: true
   215103:
     name: confb
     components: *2015_components
+    deprecated: true
   514940:
     name: cts
     components: *2015_components
+    deprecated: true
   215118:
     name: ledger
     components: *2015_components
+    deprecated: true
   120054:
     name: lsb3
     components: *2015_components
+    deprecated: true
   215101:
     name: lsb2
     components: *2015_components
+    deprecated: true
   215113:
     name: members
     components: *2015_components
+    deprecated: true
   215114:
     name: musicmate
     components: *2015_components
+    deprecated: true
   215111:
     name: oic
     components: *2015_components
+    deprecated: true
   215109:
     name: pcc
     components: *2015_components
+    deprecated: true
   215110:
     name: praynow
     components: *2015_components
+    deprecated: true
   215117:
     name: unite
     components: *2015_components
+    deprecated: true
 
   214104:
     name: bible101
