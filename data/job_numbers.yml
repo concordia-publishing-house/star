@@ -93,10 +93,6 @@ jobs:
     name: ledger
     components: *2015_components
     deprecated: true
-  120054:
-    name: lsb3
-    components: *2015_components
-    deprecated: true
   215101:
     name: lsb2
     components: *2015_components
