@@ -11,7 +11,8 @@ class Star
     COMPONENT_ALIASES = {
       "incubation" =>   "planning",
       "ops" =>          "chore",
-      "err" =>          "exception"
+      "err" =>          "exception",
+      "zendesk" =>      "itsm"
     }.freeze
 
 
