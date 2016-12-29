@@ -65,7 +65,7 @@ class Star
   def record_time!(project, component, date, hours)
 
     unless project =~ /^\d{6}$/ and component =~ /^\d{2}$/
-      entry = Job.entry_for_project_and_component(project, component)
+      entry = Job.entry_for_project_and_component(project, component, date: date)
 
       unless entry
         print_missing_component_message!(project, component)
