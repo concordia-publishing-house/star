@@ -32,15 +32,15 @@ jobs:
     217101:
       name: lsb2
       components: *2015_components
-    # 217102:
-    #   name: bsb
-    #   components: *2015_components
+    217102:
+      name: bsb
+      components: *2015_components
     217103:
       name: confb
       components: *2015_components
-    # 217104:
-    #   name: bible101
-    #   components: *2015_components
+    217104:
+      name: bible101
+      components: *2015_components
     217109:
       name: pcc
       components: *2015_components
