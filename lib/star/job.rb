@@ -13,7 +13,8 @@ class Star
       "incubation" =>   "planning",
       "ops" =>          "chore",
       "err" =>          "exception",
-      "zendesk" =>      "itsm"
+      "zendesk" =>      "itsm",
+      "code-review" =>  "project-maintenance"
     }.freeze
 
 
