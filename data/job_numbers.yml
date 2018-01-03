@@ -28,6 +28,35 @@
 # 120078  Interactive Bible Timeline
 
 jobs:
+  2018:
+    218101:
+      name: lsb2
+      components: *2015_components
+    218103:
+      name: confb
+      components: *2015_components
+    218109:
+      name: pcc
+      components: *2015_components
+    218110:
+      name: praynow
+      components: *2015_components
+    218111:
+      name: oic
+      components: *2015_components
+    218113:
+      name: members
+      components: *2015_components
+    218117:
+      name: unite
+      components: *2015_components
+    218118:
+      name: ledger
+      components: *2015_components
+    120054:
+      name: lsb3
+      components: *2015_components
+
   2017:
     217101:
       name: lsb2
