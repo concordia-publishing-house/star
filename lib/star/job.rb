@@ -5,8 +5,9 @@ class Star
 
     PROJECT_ALIASES = {
       "dayschool" => "oic",
-      "lsb-editor" => "lsb3",
-      "lsb" => "lsb3"
+      "lsb-editor" => "lsb",
+      "lsb3" => "lsb",
+      "lsb2" => "lsb"
     }.freeze
 
     COMPONENT_ALIASES = {
