@@ -29,28 +29,28 @@
 
 jobs:
   2019:
-    2019101:
+    219101:
       name: lsb
       components: *2015_components
-    2019103:
+    219103:
       name: confb
       components: *2015_components
-    2019109:
+    219109:
       name: pcc
       components: *2015_components
-    2019110:
+    219110:
       name: praynow
       components: *2015_components
-    2019111:
+    219111:
       name: oic
       components: *2015_components
-    2019113:
+    219113:
       name: members
       components: *2015_components
-    2019117:
+    219117:
       name: unite
       components: *2015_components
-    2019118:
+    219118:
       name: ledger
       components: *2015_components
 
