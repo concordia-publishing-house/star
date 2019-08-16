@@ -56,6 +56,12 @@ jobs:
     120149:
       name: mss
       components: *2015_components    
+    120104:
+      name: pop
+      components: *2015_components
+    120124:
+      name: catechism
+      components: *2015_components
 
   2018:
     218101:
