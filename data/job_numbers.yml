@@ -28,6 +28,41 @@
 # 120078  Interactive Bible Timeline
 
 jobs:
+  2020:
+    120104:
+      name: pop
+      components: *2015_components
+    120124:
+      name: catechism
+      components: *2015_components
+    220101:
+      name: lsb
+      components: *2015_components
+    220103:
+      name: confb
+      components: *2015_components
+    220109:
+      name: pcc
+      components: *2015_components
+    220110:
+      name: praynow
+      components: *2015_components
+    220111:
+      name: oic
+      components: *2015_components
+    220113:
+      name: members
+      components: *2015_components
+    220117:
+      name: unite
+      components: *2015_components
+    220118:
+      name: ledger
+      components: *2015_components
+    220119:
+      name: mss
+      components: *2015_components
+
   2019:
     219101:
       name: lsb
