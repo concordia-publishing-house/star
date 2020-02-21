@@ -32,7 +32,7 @@ jobs:
     120104:
       name: pop
       components:
-        01: development
+        "01": development
     120124:
       name: catechism
       components: *2015_components
