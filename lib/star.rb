@@ -1,5 +1,4 @@
 require "faraday"
-require "faraday/raise_errors"
 require "nokogiri"
 require "bigdecimal"
 require "star/errors"
