@@ -55,7 +55,7 @@ class Star
   def initialize(host=Star::PRODUCTION, credentials)
     @host, @credentials = host, credentials
     @http = Faraday.new(url: host) do |http|
-      http.use Faraday::RaiseErrors
+      http.response :raise_error
       http.adapter :http_ntlm
     end
   end
